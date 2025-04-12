@@ -6,30 +6,31 @@
         nvf.url = "github:notashelf/nvf";
     };
 
-    outputs = { self, nixpkgs, nvf, ... }: {
-
-        packages.x86_64-linux.default = 
-            (nvf.lib.neovimConfiguration {
-                pkgs = nixpkgs.legacyPackages.x86_64-linux;
-                modules = [ ./nvim ];
-            }).neovim;
-
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-            modules = [
-                nvf.nixosModules.default
+    outputs = { self, nixpkgs, nvf, ... }:
+        let
+            eachSystem = nixpkgs.lib.genAttrs [
+                "x86_64-linux"
+                "aarch64-darwin"
             ];
-        };
+        in {
+            packages = eachSystem (system:
+                let
+                    pkgs = nixpkgs.legacyPackages.${system};
+                in {
+                    default = (nvf.lib.neovimConfiguration {
+                        inherit pkgs;
+                        modules = [ ./nvim ];
+                    }).neovim;
+                }
+            );
 
-        packages.aarch64-darwin.default = 
-            (nvf.lib.neovimConfiguration {
-                pkgs = nixpkgs.legacyPackages.x86_64-linux;
-                modules = [ ./nvim ];
-            }).neovim;
-
-        nixosConfigurations.darwin = nixpkgs.lib.darwinSystem {
-            modules = [
-                nvf.darwinModules.default
-            ];
+            # Only define nixosConfigurations if host is Linux
+            nixosConfigurations = {
+                nixos = nixpkgs.lib.nixosSystem {
+                    modules = [
+                        nvf.nixosModules.default
+                    ];
+                };
+            };
         };
-    };
 }
