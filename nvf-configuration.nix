@@ -8,7 +8,16 @@
             style = "light";
         };
 
-        telescope.enable = true;
+        telescope = {
+            enable = true;
+
+            mappings = {
+                findFiles = "<leader>ff";
+                buffers = "<leader>fb";
+                liveGrep = "<leader>fw";
+            };
+        };
+
         autocomplete.nvim-cmp.enable = true;
 
         statusline = {
@@ -76,9 +85,22 @@
 
                 mappings = {
                     workspaceDiagnostics = "<leader>tt";
+                    # next = "]d";
+                    # previous = "[d";
                 };
-                # setupOpts = {
-                # };
+
+                setupOpts = {
+                    fold_open = "v";
+                    fold_closed = ">";
+                    indent_lines = false;
+                    signs = {
+                        error = "error";
+                        warning = "warn";
+                        hint = "hint";
+                        information = "info";
+                    };
+                    use_diagnostic_signs = false;
+                };
             };
         };
 
