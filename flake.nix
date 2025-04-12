@@ -19,5 +19,17 @@
                 nvf.nixosModules.default
             ];
         };
+
+        packages.aarch64-darwin.default = 
+            (nvf.lib.neovimConfiguration {
+                pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                modules = [ ./nvim ];
+            }).neovim;
+
+        nixosConfigurations.darwin = nixpkgs.lib.darwinSystem {
+            modules = [
+                nvf.darwinModules.default
+            ];
+        };
     };
 }
