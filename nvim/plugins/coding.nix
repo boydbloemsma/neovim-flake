@@ -1,7 +1,14 @@
 { lib, ... }: {
     vim = {
         autocomplete = {
-            nvim-cmp.enable = true;
+            blink-cmp = {
+                enable = true;
+
+                mappings = {
+                    next = "<C-n>";
+                    previous = "<C-p>";
+                };
+            };
         };
 
         visuals = {

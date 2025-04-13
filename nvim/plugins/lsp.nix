@@ -13,6 +13,16 @@
         };
 
         lsp = {
+            mappings = {
+                goToDefinition = "<leader>gd";
+                hover = "K";
+                listWorkspaceSymbols = "<leader>vws";
+                openDiagnosticFloat = "<leader>vd";
+                codeAction = "<leader>vca";
+                listReferences = "<leader>vrr";
+                renameSymbol = "<leader>vrn";
+                signatureHelp = "<C-h>";
+            };
             trouble = {
                 enable = true;
 
