@@ -17,6 +17,7 @@
 
         visuals = {
             indent-blankline.enable = true;
+            fidget-nvim.enable = true;
         };
     };
 }
