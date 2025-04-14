@@ -11,6 +11,10 @@
             };
         };
 
+        snippets = {
+            luasnip.enable = true;
+        };
+
         visuals = {
             indent-blankline.enable = true;
         };

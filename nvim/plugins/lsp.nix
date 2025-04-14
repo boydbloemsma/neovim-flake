@@ -21,7 +21,7 @@
                 codeAction = "<leader>vca";
                 listReferences = "<leader>vrr";
                 renameSymbol = "<leader>vrn";
-                signatureHelp = "<C-h>";
+                # signatureHelp = "<C-h>";
             };
             trouble = {
                 enable = true;
