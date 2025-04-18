@@ -5,5 +5,6 @@
         ./gitsigns.nix
         ./lsp.nix
         ./coding.nix
+        ./lazygit.nix
     ];
 }
