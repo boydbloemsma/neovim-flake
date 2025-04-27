@@ -78,10 +78,5 @@
             key = "<C-l>";
             action = "<Cmd>wincmd l<CR>";
         }
-        {
-            mode = "t";
-            key = "<C-w>";
-            action = "<C-\\><C-n><C-w>";
-        }
     ];
 }
