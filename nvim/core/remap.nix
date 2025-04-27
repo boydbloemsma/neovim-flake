@@ -51,5 +51,37 @@
             key = "<C-Right>";
             action = ":vertical resize -2<CR>";
         }
+
+        # terminal mode
+        {
+            mode = "t";
+            key = "<esc>";
+            action = "<C-\\><C-n>";
+        }
+        {
+            mode = "t";
+            key = "<C-h>";
+            action = "<Cmd>wincmd h<CR>";
+        }
+        {
+            mode = "t";
+            key = "<C-j>";
+            action = "<Cmd>wincmd j<CR>";
+        }
+        {
+            mode = "t";
+            key = "<C-k>";
+            action = "<Cmd>wincmd k<CR>";
+        }
+        {
+            mode = "t";
+            key = "<C-l>";
+            action = "<Cmd>wincmd l<CR>";
+        }
+        {
+            mode = "t";
+            key = "<C-w>";
+            action = "<C-\\><C-n><C-w>";
+        }
     ];
 }
