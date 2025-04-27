@@ -10,6 +10,8 @@
             html.enable = true;
             markdown.enable = true;
             ts.enable = true;
+            astro.enable = true;
+            tailwind.enable = true;
         };
 
         lsp = {
